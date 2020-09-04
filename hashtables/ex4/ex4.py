@@ -6,10 +6,10 @@ def has_negatives(a):
     # Your code here
     for num in a:
         pos_int = abs(num)
-        if pos_int in cache:
-            cache[pos_int] += 1
-        else:
+        if pos_int not in cache:
             cache[pos_int] = 1
+        else:
+            cache[pos_int] += 1
 
     return [pair[0] for pair in cache.items() if pair[1] > 1]
 
