@@ -1,8 +1,19 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    arr_len = len(arrays)
+    result = []
+
+    cache = {}
+
+    for arr in arrays:
+        for num in arr:
+            if num in cache:
+                cache[num] += 1
+            else:
+                cache[num] = 1
+
+    for pair in cache.items():
+        if pair[1] >= arr_len:
+            result.append(pair[0])
 
     return result
 

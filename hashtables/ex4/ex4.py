@@ -2,9 +2,16 @@ def has_negatives(a):
     """
     YOUR CODE HERE
     """
+    cache = {}
     # Your code here
+    for num in a:
+        pos_int = abs(num)
+        if pos_int not in cache:
+            cache[pos_int] = 1
+        else:
+            cache[pos_int] += 1
 
-    return result
+    return [pair[0] for pair in cache.items() if pair[1] > 1]
 
 
 if __name__ == "__main__":
